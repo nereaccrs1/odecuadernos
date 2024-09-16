@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ode - Cuadernos de Alta Calidad</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            text-align: center;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin: 0;
+            color: #333;
+            font-weight: 700;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #555;
+            max-width: 750px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .branding {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .branding p {
+            font-size: 1.2em;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product h3 {
+            margin: 0;
+            padding: 20px 0 10px;
+            font-size: 1.8em;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .product p {
+            padding: 0 20px 20px;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modal p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            color: #555;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ode - Cuadernos de Alta Calidad</h1>
+    </header>
+
+    <section class="branding">
+        <p>ODE es una marca de cuadernos minimalistas, inspirados en la serenidad y belleza del mar. Ofrecemos productos que combinan estilo y funcionalidad, ideales para estudiantes, profesionales y creativos.</p>
+    </section>
+
+    <section class="intro">
+        <p>Diseñamos cuadernos únicos que no solo acompañan tu rutina, sino que también la elevan. Ya seas un estudiante en busca de organización o un creativo buscando inspiración, nuestros cuadernos son el compañero perfecto.</p>
+    </section>
+
+    <section class="products">
+        <div class="product" onclick="openModal('modalEspiral')">
+            <img src="/home/estudiante/Escritorio/ode/img4.jpeg" alt="Cuaderno de Espiral">
+            <h3>Cuadernos Espirales</h3>
+            <p>Resistencia y confort en cada página. Ideales para el uso diario con un diseño limpio y funcional.</p>
+        </div>
+
+        <div class="product" onclick="openModal('modalMarmol')">
+            <img src="/home/estudiante/Escritorio/ode/img3.jpeg" alt="Cuaderno de Marmol">
+            <h3>Cuadernos de Mármol</h3>
+            <p>Elegancia y distinción. Perfectos para quienes buscan sofisticación en su papelería.</p>
+        </div>
+
+        <div class="product" onclick="openModal('modalA4')">
+            <img src="/home/estudiante/Escritorio/ode/img2.jpeg" alt="Cuaderno A4">
+            <h3>Cuadernos A4</h3>
+            <p>Amplio espacio y organización. Perfectos para los profesionales más exigentes.</p>
+        </div>
+    </section>
+
+    <div id="modalEspiral" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEspiral')">&times;</span>
+            <h3>Detalles del Cuaderno Espiral</h3>
+            <p>100 hojas de papel reciclado de 80 g/m². Espiral metálica resistente. Tapa dura con recubrimiento laminado mate.</p>
+        </div>
+    </div>
+
+    <div id="modalMarmol" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalMarmol')">&times;</span>
+            <h3>Detalles del Cuaderno de Mármol</h3>
+            <p>120 hojas de papel premium de 90 g/m². Tapa dura con acabado de mármol sintético y encuadernación con hilo.</p>
+        </div>
+    </div>
+
+    <div id="modalA4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalA4')">&times;</span>
+            <h3>Detalles del Cuaderno A4</h3>
+            <p>200 hojas de papel reciclado de 100 g/m². Tapa blanda con textura. Encuadernación cosida para mayor durabilidad.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ode. Todos los derechos reservados. Síguenos en <a href="https://instagram.com/odecuadernos">@odecuadernos</a>.</p>
+    </footer>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
